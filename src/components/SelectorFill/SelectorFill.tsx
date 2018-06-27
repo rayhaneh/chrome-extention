@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Label from '../Label/Label';
 import Field from '../Field/Field';
+import Label from '../Label/Label';
 
 interface SelectorFillInterface {
   onSelectorChange(): void;

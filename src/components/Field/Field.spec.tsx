@@ -16,16 +16,15 @@ configure({ adapter: new enzymeAdapterReact16() });
 let comp: ShallowWrapper;
 let mockOnChange: jest.Mock<() => void>;
 
-
 describe('Field Component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Field />, div);
+    ReactDOM.render(<Field onChange={jest.fn()} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it('renders initial state of the Field component', () => {
-    comp = shallow(<Field/>);
+    comp = shallow(<Field onChange={jest.fn()}/>);
     expect(comp.html()).toMatch('<input type=\"text\"/>');
   });
 

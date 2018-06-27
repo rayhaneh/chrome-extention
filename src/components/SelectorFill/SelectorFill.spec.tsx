@@ -18,16 +18,15 @@ let comp: ShallowWrapper;
 let mockOnSelectorChange: jest.Mock<() => void>;
 let mockOnValueChange: jest.Mock<() => void>;
 
-
 describe('SelectorFill Component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<SelectorFill />, div);
+    ReactDOM.render(<SelectorFill onSelectorChange={jest.fn()} onValueChange={jest.fn()} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it('renders initial state of the Field component', () => {
-    comp = shallow(<SelectorFill />);
+    comp = shallow(<SelectorFill onSelectorChange={jest.fn()} onValueChange={jest.fn()}/>);
 
     const selectorHTML = '<label>CSS Selector</label><input type="text"/>';
     const valueHTML = '<label>Value</label><input type="text"/>';
@@ -38,7 +37,7 @@ describe('SelectorFill Component', () => {
   it('call onSelectorChange', () => {
     mockOnSelectorChange = jest.fn();
 
-    comp = shallow(<SelectorFill onSelectorChange={mockOnSelectorChange}/>);
+    comp = shallow(<SelectorFill onSelectorChange={mockOnSelectorChange} onValueChange={jest.fn()}/>);
 
     expect(comp.find(Field).first().props().onChange).toEqual(mockOnSelectorChange);
   });
@@ -46,7 +45,7 @@ describe('SelectorFill Component', () => {
   it('call onValueChange', () => {
     mockOnValueChange = jest.fn();
 
-    comp = shallow(<SelectorFill onValueChange={mockOnValueChange}/>);
+    comp = shallow(<SelectorFill onSelectorChange={jest.fn()} onValueChange={mockOnValueChange}/>);
 
     expect(comp.find(Field).last().props().onChange).toEqual(mockOnValueChange);
   });

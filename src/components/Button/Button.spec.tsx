@@ -19,12 +19,12 @@ let mockOnClick: jest.Mock<() => void>;
 describe('Field Component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Button text={'Submit'} />, div);
+    ReactDOM.render(<Button text={'Submit'} onClick={jest.fn()} />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   it('renders initial state of the label component', () => {
-    comp = shallow(<Button text={'Submit'} />);
+    comp = shallow(<Button text={'Submit'} onClick={jest.fn()}/>);
     expect(comp.html()).toMatch('<button>Submit</button>');
   });
 
