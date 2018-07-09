@@ -24,6 +24,18 @@ describe('App', () => {
 
   it('renders initial state of the App', () => {
     comp = shallow(<App/>);
-    expect(comp.html()).toMatch('<div></div>');
+
+    const selectorHTML = '<label>CSS Selector</label><input type="text"/>';
+    const valueHTML = '<label>Value</label><input type="text"/>';
+
+    expect(comp.html()).toMatch(`<div><div>${selectorHTML}${valueHTML}</div></div>`);
+  });
+
+  it('should change the state when selector field value is changed',  () => {
+    comp = shallow(<App/>);
+
+    const selectorField = comp.find('input').first();
+
+    selectorField.simulate('change');
   });
 });

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface FieldInterface {
-  onChange(): void;
+  onChange(event: any): void;
 }
 
 const Field: React.SFC<FieldInterface> = (props) => {

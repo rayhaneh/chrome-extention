@@ -4,8 +4,8 @@ import Field from '../Field/Field';
 import Label from '../Label/Label';
 
 interface SelectorFillInterface {
-  onSelectorChange(): void;
-  onValueChange(): void;
+  onSelectorChange(event: any): void;
+  onValueChange(event: any): void;
 }
 
 const SelectorFill: React.SFC<SelectorFillInterface> = (props) => {
