@@ -6,24 +6,25 @@ import SelectorFill from './components/SelectorFill/SelectorFill';
 
 class App extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     selector: '',
-  //   }
-  // }
-
-  private onSelectorChange = (event: any) => {
-    // tslint:disable-next-line:no-console
-    window.console.error(event);
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      selector: '',
+      value: '',
+    }
+    this.onSelectorChange = this.onSelectorChange.bind(this);
+    this.onValueChange = this.onValueChange.bind(this);
   }
 
-  private onValueChange = (event: any) => {
-    /// tslint:disable-next-line:no-console
-    window.console.error(event);
+  onSelectorChange = (event: any) => {
+    this.setState({selector: event.target.value})
   }
 
-  public render() {
+  onValueChange = (event: any) => {
+    this.setState({value: event.target.value})
+  }
+
+  render() {
     return (
       <div>
         <SelectorFill

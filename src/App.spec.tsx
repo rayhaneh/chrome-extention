@@ -36,6 +36,6 @@ describe('App', () => {
 
     const selectorField = comp.find('input').first();
 
-    selectorField.simulate('change');
+    selectorField.simulate('change', {target: {value: 'New CSS Selector'}});
   });
 });

@@ -22,6 +22,8 @@
     "linebreak-style": [true, "LF"],
     "max-classes-per-file": [true, 1],
     "max-line-length": [true, 120],
+    "member-access": [true, "no-public"] ,
+    "member-ordering": false,
     "object-literal-sort-keys": true,
     "no-boolean-literal-compare": true,
     "no-consecutive-blank-lines": true,
